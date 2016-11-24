@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import config from './data/config';
+
+import Children from './children';
+
+firebase.initializeApp(config);
 
 ReactDOM.render(
-    <div>
-        test
-    </div>,
+    <Children />,
     document.getElementById('app')
 );
