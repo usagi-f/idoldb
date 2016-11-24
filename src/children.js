@@ -15,11 +15,18 @@ const Children = (props) => {
         firebase.database().ref('idol').set(data);
     };
 
+    const handleShowData = () => {
+        console.log('foo');
+    };
+
     return (
         <div>
             <button
                 onClick={handleSetData}
-            >foo</button>
+            >setData</button>
+            <button
+                onClick={handleShowData}
+            >showData</button>
         </div>
     );
 };
