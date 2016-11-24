@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import config from './data/config';
 
-import Children from './children';
+import DbTestComponent from './dbTestComponent';
 
 // Initialize
 firebase.initializeApp(config);
@@ -16,6 +16,6 @@ firebase.database().ref('idol').on('value', snapshot => {
 });
 
 ReactDOM.render(
-    <Children />,
+    <DbTestComponent />,
     document.getElementById('app')
 );

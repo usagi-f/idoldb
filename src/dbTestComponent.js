@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Children = (props) => {
+const DbTestComponent = (props) => {
 
     const handleSetData = () => {
         const data = {
@@ -31,10 +31,10 @@ const Children = (props) => {
     );
 };
 
-Children.propTypes = {
+DbTestComponent.propTypes = {
 };
 
-Children.defaultProps = {
+DbTestComponent.defaultProps = {
 };
 
-export default Children;
+export default DbTestComponent;
