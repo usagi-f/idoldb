@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from 'antd';
 
 class DbTestComponent extends React.Component {
     constructor(props) {
@@ -45,7 +46,7 @@ class DbTestComponent extends React.Component {
             <div>
                 Group: <input type="text" name="" id="newGroup" />
                 Name: <input type="text" name="" id="newName" />
-                <button onClick={this.handleAddData}>情報を追加</button>
+                <Button onClick={this.handleAddData}>情報を追加</Button>
                 <div id="idolList">
                     {this.renderIdolList()}
                 </div>
