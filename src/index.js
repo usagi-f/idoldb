@@ -6,16 +6,14 @@ import DbTestComponent from './dbTestComponent';
 
 // Initialize
 firebase.initializeApp(config);
+const dbTest = firebase.database().ref('/idol/test');
 
 // Subscribe
-firebase.database().ref('idol').on('value', snapshot => {
-    if (snapshot.exists()) {
-        const data = snapshot.val();
-        console.log(data);
-    }
+dbTest.on('value', snapshot => {
+    document.getElementById('chatText').innerText = snapshot.val().text;
 });
 
 ReactDOM.render(
-    <DbTestComponent />,
+    <DbTestComponent db={dbTest} />,
     document.getElementById('app')
 );

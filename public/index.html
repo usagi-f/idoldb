@@ -3,29 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>develop</title>
-    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
-    <script src="./config_init.js"></script>
 </head>
 <body>
-    <!-- <div id="app"></div> -->
-    <div id="message">
-        <p id="chatText"></p>
-        <input type="text" name="" id="my_text">
-        <button onclick="changeData()">更新</button>
-    </div>
-    <script>
-        var db = firebase.database();
-        var myChatAll = db.ref("/idol/test");
-
-        function changeData(){
-            var text = document.getElementById("my_text").value;
-            myChatAll.set({title:"example", text:text});
-        }
-
-        myChatAll.on("value", function(snapshot) {
-            document.getElementById("chatText").innerText = snapshot.val().text;
-        });
-    </script>
-    <!-- <script src="./bundle.js"></script> -->
+    <div id="app"></div>
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+    <script src="./bundle.js"></script>
 </body>
 </html>
