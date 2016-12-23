@@ -12,20 +12,33 @@
   "author": "usagi-f <usagi.f@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "antd": "^2.5.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
+    "babel-plugin-import": "^1.1.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
+    "css-loader": "^0.26.1",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.3"
   },
   "babel": {
     "presets": [
       "es2015",
       "react"
+    ],
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "style": "css"
+        }
+      ]
     ]
   }
 }
