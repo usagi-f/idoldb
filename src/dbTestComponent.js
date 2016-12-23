@@ -1,5 +1,4 @@
 import React from 'react';
-import {getUniqueStr} from './util/uniqueStr';
 
 class DbTestComponent extends React.Component {
     constructor(props) {
