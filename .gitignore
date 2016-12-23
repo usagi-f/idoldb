@@ -1,3 +1,6 @@
 ./.git
 ./node_modules
-dist/**/*.js
+*.log
+public/**/*.js
+
+src/data/config.js
