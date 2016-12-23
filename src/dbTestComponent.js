@@ -6,7 +6,8 @@ class DbTestComponent extends React.Component {
         super(props);
         this.state = {
             viewData: []
-        }
+        };
+        this.handleAddData = this.handleAddData.bind(this);
     }
     componentWillMount() {
         const {db} = this.props;
@@ -18,26 +19,27 @@ class DbTestComponent extends React.Component {
         });
     }
     handleAddData() {
+        const {db} = this.props;
         const group = document.querySelector('#newGroup').value;
         const name = document.querySelector('#newName').value;
-        props.db.set({
-            id: getUniqueStr(),
+        db.push({
             group: group,
             name: name
         });
     }
     renderIdolList() {
-        console.log(this.state.viewData);
-        if (this.state.viewData.length === 0) return false;
-        return this.state.viewData.map(elm => {
-            return (
-                <div key={elm.id} style={{border: '1px solid black'}}>
-                    <p>{elm.id}</p>
-                    <p>{elm.group}</p>
-                    <p>{elm.name}</p>
+        if (Object.keys(this.state.viewData).length === 0) return false;
+        let list = [];
+        Object.keys(this.state.viewData).forEach(key => {
+            list.push(
+                <div key={key} style={{border: '1px solid black'}}>
+                    <p style={{fontSize: 12}}>{key}</p>
+                    <p>{this.state.viewData[key].group}</p>
+                    <p>{this.state.viewData[key].name}</p>
                 </div>
             );
         });
+        return list;
     }
     render() {
         return (
