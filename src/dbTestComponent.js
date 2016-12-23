@@ -1,5 +1,6 @@
 import React from 'react';
-import {Button} from 'antd';
+import {Button, Card, Input, Col} from 'antd';
+const InputGroup = Input.Group;
 
 class DbTestComponent extends React.Component {
     constructor(props) {
@@ -32,11 +33,9 @@ class DbTestComponent extends React.Component {
         let list = [];
         Object.keys(this.state.viewData).forEach(key => {
             list.push(
-                <div key={key} style={{border: '1px solid black'}}>
-                    <p style={{fontSize: 12}}>{key}</p>
+                <Card title={this.state.viewData[key].name} bordered={false} style={{marginBottom: 20}} key={key}>
                     <p>{this.state.viewData[key].group}</p>
-                    <p>{this.state.viewData[key].name}</p>
-                </div>
+                </Card>
             );
         });
         return list;
@@ -44,10 +43,20 @@ class DbTestComponent extends React.Component {
     render() {
         return (
             <div>
-                Group: <input type="text" name="" id="newGroup" />
-                Name: <input type="text" name="" id="newName" />
-                <Button onClick={this.handleAddData}>情報を追加</Button>
-                <div id="idolList">
+                <div style={{background: '#fff', padding: 20, boxShadow: '0 1px 6px rgba(0, 0, 0, .2)'}}>
+                    <InputGroup>
+                        <Col span="9">
+                            <Input addonBefore="Group" id="newGroup" />
+                        </Col>
+                        <Col span="9">
+                            <Input addonBefore="Name" id="newName" />
+                        </Col>
+                        <Col span="6">
+                            <Button onClick={this.handleAddData} type="primary" style={{width: '100%'}}>情報を追加</Button>
+                        </Col>
+                    </InputGroup>
+                </div>
+                <div id="idolList" style={{padding: 20}}>
                     {this.renderIdolList()}
                 </div>
             </div>
