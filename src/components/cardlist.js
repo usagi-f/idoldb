@@ -12,7 +12,7 @@ const CardList = (props) => {
                     bordered={false}
                     style={{marginBottom: 20}}
                     key={key}
-                    extra={<p onClick={props.handleRemoveData} data-id={key}>削除</p>}
+                    extra={<p onClick={props.removeData} data-id={key}>削除</p>}
                 >
                     <p>{props.data[key].group}</p>
                 </Card>
@@ -29,12 +29,12 @@ const CardList = (props) => {
 
 CardList.propTypes = {
     data: React.PropTypes.object,
-    handleRemoveData: React.PropTypes.func
+    removeData: React.PropTypes.func
 };
 
 CardList.defaultProps = {
     data: {},
-    handleRemoveData: () => {}
+    removeData: () => {}
 };
 
 export default CardList;

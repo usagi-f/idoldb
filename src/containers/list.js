@@ -8,8 +8,8 @@ class List extends React.Component {
         this.state = {
             viewData: {}
         };
-        this.handleAddData = this.handleAddData.bind(this);
-        this.handleRemoveData = this.handleRemoveData.bind(this);
+        this.addData = this.addData.bind(this);
+        this.removeData = this.removeData.bind(this);
     }
     componentWillMount() {
         const {db} = this.props;
@@ -20,16 +20,11 @@ class List extends React.Component {
             });
         });
     }
-    handleAddData() {
+    addData(data) {
         const {db} = this.props;
-        const group = document.querySelector('#newGroup').value;
-        const name = document.querySelector('#newName').value;
-        db.push({
-            group: group,
-            name: name
-        });
+        db.push(data);
     }
-    handleRemoveData(e) {
+    removeData(e) {
         const {db} = this.props;
         const id = e.target.getAttribute('data-id');
         db.child(id).remove();
@@ -38,11 +33,11 @@ class List extends React.Component {
         return (
             <div>
                 <AddCharacter
-                    handleAddData={this.handleAddData}
+                    addData={this.addData}
                 />
                 <CardList
                     data={this.state.viewData}
-                    handleRemoveData={this.handleRemoveData}
+                    removeData={this.removeData}
                 />
             </div>
         );
