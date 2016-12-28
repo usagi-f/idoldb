@@ -24,9 +24,8 @@ class List extends React.Component {
         const {db} = this.props;
         db.push(data);
     }
-    removeData(e) {
+    removeData(id) {
         const {db} = this.props;
-        const id = e.target.getAttribute('data-id');
         db.child(id).remove();
     }
     render() {

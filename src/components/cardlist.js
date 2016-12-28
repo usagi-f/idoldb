@@ -2,6 +2,10 @@ import React from 'react';
 import {Card} from 'antd';
 
 const CardList = (props) => {
+    const handleRemoveData = (e) => {
+        const id = e.target.getAttribute('data-id');
+        props.removeData(id);
+    }
     const renderIdolList = () => {
         if (Object.keys(props.data).length === 0) return false;
         let list = [];
@@ -12,7 +16,7 @@ const CardList = (props) => {
                     bordered={false}
                     style={{marginBottom: 20}}
                     key={key}
-                    extra={<p onClick={props.removeData} data-id={key}>削除</p>}
+                    extra={<p onClick={handleRemoveData} data-id={key}>削除</p>}
                 >
                     <p>{props.data[key].group}</p>
                 </Card>
