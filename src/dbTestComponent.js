@@ -52,7 +52,7 @@ class DbTestComponent extends React.Component {
                             <Input addonBefore="Name" id="newName" />
                         </Col>
                         <Col span="6">
-                            <Button onClick={this.handleAddData} type="primary" style={{width: '100%'}}>情報を追加</Button>
+                            <Button onClick={this.handleAddData} type="primary" style={{width: '100%'}}>追加</Button>
                         </Col>
                     </InputGroup>
                 </div>
