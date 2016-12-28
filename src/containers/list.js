@@ -1,8 +1,6 @@
 import React from 'react';
-import {Button, Input, Col} from 'antd';
-const InputGroup = Input.Group;
-
 import CardList from './../components/cardlist';
+import AddCharacter from './../components/addcharacter';
 
 class List extends React.Component {
     constructor(props) {
@@ -39,22 +37,12 @@ class List extends React.Component {
     render() {
         return (
             <div>
-                <div style={{background: '#fff', padding: 20, boxShadow: '0 1px 6px rgba(0, 0, 0, .2)'}}>
-                    <InputGroup>
-                        <Col span="9">
-                            <Input addonBefore="Group" id="newGroup" />
-                        </Col>
-                        <Col span="9">
-                            <Input addonBefore="Name" id="newName" />
-                        </Col>
-                        <Col span="6">
-                            <Button onClick={this.handleAddData} type="primary" style={{width: '100%'}}>追加</Button>
-                        </Col>
-                    </InputGroup>
-                </div>
+                <AddCharacter
+                    handleAddData={this.handleAddData}
+                />
                 <CardList
                     data={this.state.viewData}
-                    removeEvent={this.handleRemoveData}
+                    handleRemoveData={this.handleRemoveData}
                 />
             </div>
         );
