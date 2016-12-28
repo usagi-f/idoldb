@@ -9,6 +9,7 @@ class DbTestComponent extends React.Component {
             viewData: []
         };
         this.handleAddData = this.handleAddData.bind(this);
+        this.handleRemoveData = this.handleRemoveData.bind(this);
     }
     componentWillMount() {
         const {db} = this.props;
@@ -28,12 +29,23 @@ class DbTestComponent extends React.Component {
             name: name
         });
     }
+    handleRemoveData(e) {
+        const {db} = this.props;
+        const id = e.target.getAttribute('data-id');
+        db.child(id).remove();
+    }
     renderIdolList() {
         if (Object.keys(this.state.viewData).length === 0) return false;
         let list = [];
         Object.keys(this.state.viewData).forEach(key => {
             list.push(
-                <Card title={this.state.viewData[key].name} bordered={false} style={{marginBottom: 20}} key={key}>
+                <Card
+                    title={this.state.viewData[key].name}
+                    bordered={false}
+                    style={{marginBottom: 20}}
+                    key={key}
+                    extra={<p onClick={this.handleRemoveData} data-id={key}>削除</p>}
+                >
                     <p>{this.state.viewData[key].group}</p>
                 </Card>
             );
