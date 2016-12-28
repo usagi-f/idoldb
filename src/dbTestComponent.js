@@ -28,12 +28,21 @@ class DbTestComponent extends React.Component {
             name: name
         });
     }
+    handleRemoveData() {
+        console.log('remove_event');
+    }
     renderIdolList() {
         if (Object.keys(this.state.viewData).length === 0) return false;
         let list = [];
         Object.keys(this.state.viewData).forEach(key => {
             list.push(
-                <Card title={this.state.viewData[key].name} bordered={false} style={{marginBottom: 20}} key={key}>
+                <Card
+                    title={this.state.viewData[key].name}
+                    bordered={false}
+                    style={{marginBottom: 20}}
+                    key={key}
+                    extra={<p onClick={this.handleRemoveData}>削除</p>}
+                >
                     <p>{this.state.viewData[key].group}</p>
                 </Card>
             );
